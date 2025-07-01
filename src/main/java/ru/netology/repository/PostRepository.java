@@ -1,10 +1,7 @@
 package ru.netology.repository;
 
 import ru.netology.model.Post;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -27,9 +24,8 @@ public class PostRepository {
       posts.put(id, post);
     } else {
       if (posts.containsKey(post.getId())) {
-        posts.put(post.getId(), post); // Обновление
+        posts.put(post.getId(), post);
       } else {
-        // Альтернатива: либо создаём, либо выбрасываем исключение
         throw new RuntimeException("Post with ID " + post.getId() + " not found");
       }
     }
